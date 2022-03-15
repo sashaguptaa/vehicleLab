@@ -37,13 +37,11 @@ public abstract class ElectricCar extends Car {
 
         if (miles <= 0) {
             throw new IllegalArgumentException("Must be positive.");
-
         } 
         
         else if (!canDrive(miles)) {
             throw new IllegalArgumentException(String.format("You can only go with current " + "charge is %.2f miles", getRemainingRange()));
         }
-
 
         super.addMileage(miles);
         decreaseCharge(miles);
@@ -79,12 +77,15 @@ public abstract class ElectricCar extends Car {
      *                                  miles results in a negative battery capacity
      */
     protected void decreaseCharge(double miles) {
+
         if (miles < 0) {
-            throw new IllegalArgumentException(String.format("miles %.1f must be at least 0.", miles));
-        } else if (miles > getRemainingRange()) {
-            throw new IllegalArgumentException(String.format("Cannot remove %.1f miles from the charge while the " +
-                    "capacity is at %.1f.", miles, getRemainingRange()));
+            throw new IllegalArgumentException("Must be positive.");
+        } 
+        
+        else if (miles > getRemainingRange()) {
+            throw new IllegalArgumentException();
         }
+
         range -= miles;
     }
 }
