@@ -26,15 +26,7 @@ abstract class GasPoweredCar extends Car {
      * fuelCapacityGallons are non-positive.
      */
     public GasPoweredCar(String make, String model, double mpg, double fuelCapacityGallons) {
-        super(make, model, 0);
-
-        if(mpg <= 0 || fuelCapacityGallons <= 0){
-            throw new IllegalArgumentException();
-        }
-        
-        this.mpg = mpg;
-        this.fuelCapacityGallons = fuelCapacityGallons;
-        this.fuelLevel = fuelCapacityGallons;
+        this(make, model, 0, mpg, fuelCapacityGallons);
     }
 
     /**
