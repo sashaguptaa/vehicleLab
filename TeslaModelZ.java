@@ -6,24 +6,32 @@ class TeslaModelZ extends ElectricCar{
     For a Tesla, the make is Tesla. The model is Z. The model number is
     an additional value.
     */
+    private int modelNum; 
+    private double startingMileage; 
     public TeslaModelZ(double startingMileage, int modelNum){
+        super("Tesla", "Z" + modelNum, startingMileage); 
 
+        this.modelNum = modelNum; 
+        this.startingMileage = startingMileage; 
     }
 
     /** Defaults mileage to 0. */
     public TeslaModelZ(int modelNum){
-
+        super("Tesla", "Z" + modelNum, 0); 
+        
+        this.modelNum = modelNum; 
+        this.startingMileage = 0; 
     }
 
     /** Returns the model number.*/
     public int getModelNum(){
-
+        return modelNum; 
     }
 
     /** Returns the model and model number concatenated together. For
     example, returns "Z70" for modelNum 70. */
     public String getModel(){
-
+        return "Z" + getModelNum(); 
     }
 
     /** Prints out the make, model, model number, and mileage.

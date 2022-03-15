@@ -6,7 +6,7 @@ public abstract class ElectricCar extends Car {
 
     //Note: Car begins with a full charge (and thus range). @throws IllegalArgumentException if milesOnMaxCharge is nonpositive.
 
-    private ElectricCar(String make, String model, double startingMileage, double milesOnMaxCharge) {
+    public ElectricCar(String make, String model, double startingMileage, double milesOnMaxCharge) {
         
         super(make, model, startingMileage);
 
@@ -20,7 +20,7 @@ public abstract class ElectricCar extends Car {
 
     //Defaults mileage to 0. @throws IllegalArgumentException if milesOnMaxCharge is nonpositive.
 
-    private ElectricCar(String make, String model, double milesOnMaxCharge) {
+    public ElectricCar(String make, String model, double milesOnMaxCharge) {
 
         super(make, model);
 
