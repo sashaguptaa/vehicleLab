@@ -51,6 +51,7 @@ public class ChevroletBird extends ElectricCar implements Flying {
         if (wingsExtended == false && canDrive(miles)) {
             return true;
         }
+        return false; 
 
     }
 
