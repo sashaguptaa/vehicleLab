@@ -39,8 +39,8 @@ public abstract class ElectricCar extends Car {
             throw new IllegalArgumentException("Must be positive.");
         } 
         
-        else if (!canDrive(miles)) {
-            throw new IllegalArgumentException(String.format("You can only go with current " + "charge is %.2f miles", getRemainingRange()));
+        else if (canDrive > miles) {
+            throw new IllegalArgumentException(String.format("You can only go %.2f miles on your current charge", getRemainingRange()));
         }
 
         super.addMileage(miles);
