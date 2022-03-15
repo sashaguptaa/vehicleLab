@@ -60,7 +60,7 @@ public class ChevroletBird extends ElectricCar implements Flying {
             throw new IllegalArgumentException("Must be positive.");
         } 
         
-        else if (canDrive > miles) {
+        else if (canDrive(miles) == false) {
             throw new IllegalArgumentException(String.format("You can only go %.2f miles on your current charge", getRemainingRange()));
         }
 
