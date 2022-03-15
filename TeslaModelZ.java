@@ -40,6 +40,6 @@ class TeslaModelZ extends ElectricCar{
     implement Car.toString()
     */
     public String toString(){
-        return "Tesla " + getModel() + "(" + Car.getMilage() + ")"; 
+        return super.toString(); 
     }
 }
