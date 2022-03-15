@@ -39,7 +39,6 @@ public class ChevroletBird extends ElectricCar implements Flying {
     /**
      * returns true if wings are retracted and the car has enough charge to go that
      * amount of miles
-     * //TODO ask if this method is doing what its supposed to and if not update testcase 7 in bird driving
      */
 
     @Override
@@ -49,7 +48,10 @@ public class ChevroletBird extends ElectricCar implements Flying {
             throw new IllegalArgumentException("Must be positive.");
         }
 
-        return wingsExtended; return canDrive(miles);
+        if (wingsExtended == false && canDrive(miles)) {
+            return true;
+        }
+
     }
 
     @Override
