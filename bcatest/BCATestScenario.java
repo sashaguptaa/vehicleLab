@@ -1,6 +1,6 @@
 package bcatest;
 
-public abstract class Group3_4BCATestScenario {
+public abstract class BCATestScenario {
 
     private int failed = 0;
 
