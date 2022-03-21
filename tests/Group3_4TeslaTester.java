@@ -28,6 +28,8 @@ public class Group3_4TeslaTester extends BCATestScenario{
 
 
         return getFailedCount();
+
+        // does this work
     }
 
 }
