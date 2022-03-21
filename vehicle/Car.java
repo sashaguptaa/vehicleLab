@@ -55,17 +55,17 @@ abstract class Car {
 
     /** Returns how many miles have been driven so far (odometer). */
     public double getMileage() {
-        returns miles;
+        return miles;
     }
 
     /** Returns the make of the car. */
     public  String getMake() {
-        returns make;
+        return make;
     }
 
     /** Returns the model of the car. */
     public String getModel(){
-        returns model;
+        return model;
     }
 
     /** Returns how many more miles the car can currently go given the
