@@ -1,6 +1,6 @@
 package vehicle;
 
-class TeslaModelZ extends ElectricCar{
+public class TeslaModelZ extends ElectricCar{
     /** modelNum specifies the model number. Tesla cares about that
     stuff. Tesla Model Z’s have a 340 mile range on a full charge.
     For a Tesla, the make is Tesla. The model is Z. The model number is
