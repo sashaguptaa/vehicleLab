@@ -1,9 +1,9 @@
 package tests;
 
- import vehicle.TeslaModelZ;
- import bcatest.BCATestScenario;
+import vehicle.TeslaModelZ;
+import bcatest.BCATestScenario;
 
- public class Group3_4TeslaTester extends BCATestScenario{
+public class Group3_4TeslaTester extends BCATestScenario{
      public int runTest() {
          TeslaModelZ c1 = new TeslaModelZ(70);
 
@@ -30,3 +30,5 @@ package tests;
          return getFailedCount();
 
          // does this work
+    }
+}

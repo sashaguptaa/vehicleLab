@@ -4,6 +4,6 @@ package bcatest;
  * Simplified for our introductory testing purposes. */
 
 @FunctionalInterface
-public interface Group3_4Executable {
+public interface Executable {
     void execute() throws Throwable;
 }
