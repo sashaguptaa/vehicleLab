@@ -1,6 +1,6 @@
 package vehicle;
 
-public class TeslaModelZ extends ElectricCar{
+public class TeslaModelZ extends ElectricCar implements SelfDriving{
     /** modelNum specifies the model number. Tesla cares about that
     stuff. Tesla Model Z’s have a 340 mile range on a full charge.
     For a Tesla, the make is Tesla. The model is Z. The model number is
@@ -30,6 +30,11 @@ public class TeslaModelZ extends ElectricCar{
     example, returns "Z70" for modelNum 70. */
     public String getModel(){
         return "Z" + getModelNum(); 
+    }
+
+    @Override
+    public void driveAutonomously (double miles) {
+        this.drive(getRemainingRange());
     }
 
     /** Prints out the make, model, model number, and mileage.
