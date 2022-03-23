@@ -3,8 +3,6 @@ package tests;
 import vehicle.ChevroletBird;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import bcatest.BCATestScenario;
 
@@ -43,6 +41,7 @@ public class Group3_4BirdTester extends BCATestScenario {
         assertTrue(c1.canDrive(250), "The car should be able to drive this distance.");
         assertTrue(c1.canDrive(1), "The car should be able to drive this distance.");
         //14
+        assertEquals(c1.toString(), "Chevrolet Bird (" + c1.getMileage() + "mi)", "Your toString method is incorrect");
         //15, 16
         assertEquals(c1.getMake(), "Chevrolet", "The car's make should be 'Chevrolet'");
         assertEquals(c1.getModel(), "Bird", "The car's model should be 'Bird'");
