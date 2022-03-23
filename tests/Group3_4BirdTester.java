@@ -1,6 +1,11 @@
 package tests;
 
 import vehicle.ChevroletBird;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import bcatest.BCATestScenario;
 
 public class Group3_4BirdTester extends BCATestScenario {
@@ -33,6 +38,31 @@ public class Group3_4BirdTester extends BCATestScenario {
         // come back to this
         // 10 
         assertFalse(c1.canDrive(251), "Cannot drive over max range, so should return false");
+        //11, 12, and 13
+        assertThrows(IllegalArgumentException.class, () -> {c1.canDrive(-1);}, "When miles is negative it should throw an error.");
+        assertTrue(c1.canDrive(250), "The car should be able to drive this distance.");
+        assertTrue(c1.canDrive(1), "The car should be able to drive this distance.");
+        //14
+        //15, 16
+        assertEquals(c1.getMake(), "Chevrolet", "The car's make should be 'Chevrolet'");
+        assertEquals(c1.getModel(), "Bird", "The car's model should be 'Bird'");
+        //17, 18, 19, 20
+        ArrayList<Double> L = new ArrayList<>();
+        L.add(1.0);
+        L.add(2.0);
+        L.add(3.0);
+        L.add(-1.0);
+        assertThrows(IllegalArgumentException.class, () -> {c1.roadTrip(L);}, "Road Trip should throw an error when a negative value is passed through.");
+        //new List [134, 75, 21, 876]
+        L.set(0, 134.0);
+        L.set(1, 75.0);
+        L.set(2, 21.0);
+        L.set(3, 876.0);
+        assertEquals(c1.roadTrip(L), 3, "The method should have returned 3.");
+        //21, 22
+        ChevroletBird one = new ChevroletBird(1);
+        assertEquals((int)one.getMileage(), 1, "The bird should have been created with mileage one.");
+        assertThrows(IllegalArgumentException.class, () -> {ChevroletBird negative = new ChevroletBird(-1);}, "Starting mileage should throw an error if negative.");
         // 24 and 25
         ChevroletBird c2 = new ChevroletBird();
         assertThrows(IllegalArgumentException.class, () -> {c2.fly(1 + c2.getRemainingRange());}, "Should not be able to fly more than it's remaining range");
