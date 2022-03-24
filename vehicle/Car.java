@@ -33,6 +33,9 @@ abstract class Car {
      * not, returns false. @throws IllegalArgumentException if miles is negative.
      */
     public boolean canDrive(double miles) {
+        if(miles < 0){
+            throw new IllegalArgumentException();
+        }
         if (getRemainingRange() >= miles) {
             return true;
         }
