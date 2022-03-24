@@ -1,6 +1,9 @@
 package tests;
 
 import vehicle.TeslaModelZ;
+
+import java.util.ArrayList;
+
 import bcatest.BCATestScenario;
 
 public class Group3_4TeslaTester extends BCATestScenario{
@@ -61,11 +64,18 @@ public class Group3_4TeslaTester extends BCATestScenario{
 
         assertEquals(c3.getMileage(), 340, .1, "Mileage should be 340 after first drive because battery will die.");
 
-        int[] L = {-1, 9, 8};
+        ArrayList<Double> L = new ArrayList<>();
+        L.add(1.0);
+        L.add(2.0);
+        L.add(-1.0);
         assertThrows(IllegalArgumentException.class, () -> {c3.roadTrip(L);}, "Miles must be negative.");
 
-        int[] L = {134, 75, 21, 876};
-        assertEquals(c3.roadTrip(L), 3, 0.1, "Mileage should return number of days successfully driven");
+        ArrayList<Double> L2 = new ArrayList<>();
+        L2.add(134.0);
+        L2.add(75.0);
+        L2.add(21.0);
+        L2.add(876.0);
+        assertEquals(c3.roadTrip(L2), 3, 0.1, "Mileage should return number of days successfully driven");
 
 
          return getFailedCount();
