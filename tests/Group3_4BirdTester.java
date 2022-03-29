@@ -41,7 +41,7 @@ public class Group3_4BirdTester extends BCATestScenario {
         assertTrue(c1.canDrive(250), "The car should be able to drive this distance.");
         assertTrue(c1.canDrive(1), "The car should be able to drive this distance.");
         //14
-        assertEquals(c1.toString(), "Chevrolet Bird (" + c1.getMileage() + "mi)", "Your toString method is incorrect");
+        assertEquals(c1.toString(), "Chevrolet Bird (" + c1.getMileage() + " mi)", "Your toString method is incorrect");
         //15, 16
         assertEquals(c1.getMake(), "Chevrolet", "The car's make should be 'Chevrolet'");
         assertEquals(c1.getModel(), "Bird", "The car's model should be 'Bird'");
@@ -67,7 +67,7 @@ public class Group3_4BirdTester extends BCATestScenario {
         assertThrows(IllegalArgumentException.class, () -> {c2.fly(1 + c2.getRemainingRange());}, "Should not be able to fly more than it's remaining range");
         assertThrows(IllegalArgumentException.class, () -> {c2.fly(1 + c2.getMaxRange());}, "Should not be able to fly more than it's Max range");
         // 26 
-        c1.fly(30);
+        c2.fly(30);
         assertEquals(c2.getMileage(), 0, 0.1, "Odometer should not change after fly");
         assertEquals(c2.getRemainingRange(), c2.getMaxRange() - 30, 0.1, "Gas should go down by 30 after fly(30)");
 

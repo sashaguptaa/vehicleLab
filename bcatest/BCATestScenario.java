@@ -3,7 +3,7 @@ package bcatest;
 public abstract class BCATestScenario {
 
     private int failed = 0;
-
+    protected double DELTA = 0.1; 
     /** Runs the given test scenario and returns the number of failed tests. */
     public abstract int runTest();
 

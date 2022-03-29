@@ -14,7 +14,7 @@ public class Group3_4TeslaTester extends BCATestScenario{
          assertEquals(c1.getMileage(), 0, .1, ("Mileage should be 0"));
 
          //new car with mileage of 1
-        TeslaModelZ c2 = new TeslaModelZ(1);
+        TeslaModelZ c2 = new TeslaModelZ(1, 70);
         assertEquals(c2.getMileage(), 1, .1, ("Mileage should be 1"));
 
         //mileage cannot be -1
@@ -35,7 +35,7 @@ public class Group3_4TeslaTester extends BCATestScenario{
 
          c1.drive(200);
          //car mileage should go down by 200
-         assertEquals(c1.getMileage(), 130, .1, "Mileage should be 130 after second drive.");
+         assertEquals(c1.getMileage(), 210, .1, "Mileage should be 210 after second drive.");
 
          c1.recharge();
          //remaining range should become
@@ -70,6 +70,7 @@ public class Group3_4TeslaTester extends BCATestScenario{
         L.add(-1.0);
         assertThrows(IllegalArgumentException.class, () -> {c3.roadTrip(L);}, "Miles must be negative.");
 
+        c3.recharge();
         ArrayList<Double> L2 = new ArrayList<>();
         L2.add(134.0);
         L2.add(75.0);
