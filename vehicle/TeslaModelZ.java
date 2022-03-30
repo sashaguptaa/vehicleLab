@@ -7,16 +7,16 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving{
     an additional value.
     */
     private int modelNum; 
-
+    private final static int maxRange = 340; 
     public TeslaModelZ(double startingMileage, int modelNum){
-        super("Tesla", "Z" + modelNum, startingMileage); 
+        super("Tesla", "Z" + modelNum, startingMileage, maxRange); 
 
         this.modelNum = modelNum; 
     }
 
     /** Defaults mileage to 0. */
     public TeslaModelZ(int modelNum){
-        super("Tesla", "Z" + modelNum, 0); 
+        super("Tesla", "Z" + modelNum, 0, maxRange); 
         
         this.modelNum = modelNum; 
     }
@@ -34,7 +34,13 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving{
 
     @Override
     public void driveAutonomously (double miles) {
-        this.drive(getRemainingRange());
+        if (miles < 0){
+            throw new IllegalArgumentException(); 
+        }
+        if (miles < getRemainingRange())
+            this.drive(miles);
+        else
+            this.drive(getRemainingRange());
     }
 
     /** Prints out the make, model, model number, and mileage.

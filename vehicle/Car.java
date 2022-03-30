@@ -1,6 +1,10 @@
 package vehicle;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import org.w3c.dom.views.DocumentView;
 
 abstract class Car {
     private String make;
@@ -52,7 +56,7 @@ abstract class Car {
 
     /** Gives String representation of Car as "<make and model> (<mileage> mi)" Mileage should be rounded to 1 decimal place. If mileage is a whole number, ".0" should still display. */
     public String toString() {
-        return getMake() + getModel() + '(' + getMileage() + "mi)";
+        return getMake() + " " + getModel() + " (" + getMileage() + " mi)";
 
     } 
 
@@ -93,15 +97,35 @@ abstract class Car {
     @throws IllegalArgumentException if miles is negative for any of the
     attempted days.*/
     public int roadTrip(List<Double> milesEachDay) {
-        double sum = 0;
-
-        for (int i = 0; i  < milesEachDay.size(); i++) {
-            sum += milesEachDay.get(i);
-            if (sum > this.miles) {
-                return i+1;
+        if (milesEachDay.get(0) > getRemainingRange())
+            return 0;
+        
+        for (int i = 0; i < milesEachDay.size(); i++){
+            if (milesEachDay.get(i) < 0){
+                throw new IllegalArgumentException(); 
             }
-
+            if (milesEachDay.get(i) <= getRemainingRange()){
+                drive(milesEachDay.get(i));
+                //addMileage(milesEachDay.get(i));
+            }
+            else {
+                return i + 1; 
+            }
         }
-        return 0;
+        
+        return milesEachDay.size(); 
+        // for (int i = 0; i  < milesEachDay.size(); i++) {
+        //     sum += milesEachDay.get(i);
+        //     if (sum > this.miles) {
+        //         return i+2;
+        //     }
+
+        // }
+    }
+
+    public static void main(String[] args) {
+        FordFrivolous a = new FordFrivolous(0); 
+        ArrayList<Double> list = new ArrayList<>(Arrays.asList(60.0, 78.0, 90.0, 45.0));;
+        a.roadTrip(list); 
     }
 }

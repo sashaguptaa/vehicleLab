@@ -1,6 +1,6 @@
 package vehicle;
 
-public class FordFrivolous extends GasPoweredCar{
+public class FordFrivolous extends GasPoweredCar implements Flying{
     /** FordFrivolous has a gas tank of 20 gallons and an MPG of 23.6. */
 
     public FordFrivolous(double startingMileage){
@@ -32,7 +32,7 @@ public class FordFrivolous extends GasPoweredCar{
         if (miles < 0){
             throw new IllegalArgumentException(); 
         }
-        if (miles < getFuelLevel())
+        if (miles <= getFuelLevel())
             return true; 
         
         return false; 

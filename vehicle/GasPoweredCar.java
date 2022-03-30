@@ -44,7 +44,7 @@ abstract class GasPoweredCar extends Car {
 
     /** Returns how many miles can be driven on one gallon of gas. */
     public double getMPG() {
-        return fuelCapacityGallons * mpg;
+        return mpg;
     }
 
     /** Returns how many gallons of fuel are currently in the car. */

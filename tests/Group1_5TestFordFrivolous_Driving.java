@@ -42,7 +42,6 @@ public class Group1_5TestFordFrivolous_Driving extends BCATestScenario {
 
         assertEquals(f1.toString(), "Ford Frivolous (118.0 mi)", "toString does not match");
         
-        //TODO
         //Fix up roadtrip errors in car.java
         ArrayList<Double> roadTrip1 = new ArrayList<>();
         roadTrip1.addAll(Arrays.asList(50.0, 50.0, 50.0, -100.0));
