@@ -32,7 +32,7 @@ public class FordFrivolous extends GasPoweredCar implements Flying{
         if (miles < 0){
             throw new IllegalArgumentException(); 
         }
-        if (miles <= getFuelLevel())
+        if (miles * 3 <= getRemainingRange())
             return true; 
         
         return false; 

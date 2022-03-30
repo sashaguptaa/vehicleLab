@@ -1,10 +1,6 @@
 package vehicle;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import org.w3c.dom.views.DocumentView;
 
 abstract class Car {
     private String make;
@@ -97,35 +93,21 @@ abstract class Car {
     @throws IllegalArgumentException if miles is negative for any of the
     attempted days.*/
     public int roadTrip(List<Double> milesEachDay) {
-        if (milesEachDay.get(0) > getRemainingRange())
-            return 0;
-        
         for (int i = 0; i < milesEachDay.size(); i++){
-            if (milesEachDay.get(i) < 0){
+            if (milesEachDay.get(i) < 0)
                 throw new IllegalArgumentException(); 
-            }
+        }
+
+        int days = 0; 
+        for (int i = 0; i < milesEachDay.size(); i++){
             if (milesEachDay.get(i) <= getRemainingRange()){
                 drive(milesEachDay.get(i));
-                //addMileage(milesEachDay.get(i));
+                days++; 
             }
-            else {
-                return i + 1; 
-            }
+            else 
+                return days; 
         }
-        
-        return milesEachDay.size(); 
-        // for (int i = 0; i  < milesEachDay.size(); i++) {
-        //     sum += milesEachDay.get(i);
-        //     if (sum > this.miles) {
-        //         return i+2;
-        //     }
 
-        // }
-    }
-
-    public static void main(String[] args) {
-        FordFrivolous a = new FordFrivolous(0); 
-        ArrayList<Double> list = new ArrayList<>(Arrays.asList(60.0, 78.0, 90.0, 45.0));;
-        a.roadTrip(list); 
+        return days; 
     }
 }
